@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="nation"
+            type="com.wolf.recyclerview.bean.Nation"/>
+
+        <variable
+            name="presenter"
+            type="com.wolf.recyclerview.presenter.PresenterClick"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/button_lin"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:gravity="center"
+        android:onClick="@{(theView)->presenter.clickNationButton(theView,nation)}"
+        android:orientation="vertical"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitXY"
+            app:imageUrl="@{nation.circleImageUrl}"
+            />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@{nation.name}"/>
+
+    </LinearLayout>
+</layout>
