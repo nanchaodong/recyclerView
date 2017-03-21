@@ -3,6 +3,7 @@ package com.wolf.recyclerview.presenter;
 import android.view.View;
 
 import com.wolf.recyclerview.bean.Banner;
+import com.wolf.recyclerview.bean.ClassInfo;
 import com.wolf.recyclerview.bean.Nation;
 import com.wolf.recyclerview.bean.News;
 
@@ -23,6 +24,9 @@ public class PresenterClick {
 
     }
     public void  clickNews(News news){
+
+    }
+    public void clickClass(ClassInfo classInfo){
 
     }
 }

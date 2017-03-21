@@ -5,6 +5,9 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 
 import com.wolf.recyclerview.R;
 import com.wolf.recyclerview.adapter.CommonAdapter;
@@ -20,6 +23,7 @@ import java.util.List;
 import rx.Subscriber;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
+    private static final String TAG = "MainActivity";
     private GridLayoutManager manager;
     private CommonAdapter adapter;
 
@@ -51,6 +55,17 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         adapter = new CommonAdapter(this);
         bindView.recyclerView.setLayoutManager(manager);
         bindView.recyclerView.setAdapter(adapter);
+        bindView.recyclerView.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
+            @Override
+            public void onChildViewAttachedToWindow(View view) {
+                Log.i(TAG, "onChildViewAttachedToWindow: " + view.toString());
+            }
+
+            @Override
+            public void onChildViewDetachedFromWindow(View view) {
+                Log.i(TAG, "onChildViewDetachedFromWindow: " +  view.toString());
+            }
+        });
     }
 
     @Override

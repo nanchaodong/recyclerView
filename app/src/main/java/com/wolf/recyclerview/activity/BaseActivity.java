@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.LayoutRes;
+import android.support.v7.app.AppCompatActivity;
 
 import com.wolf.recyclerview.R;
 import com.wolf.recyclerview.databinding.ABaseBinding;
@@ -12,7 +13,7 @@ import com.wolf.recyclerview.databinding.ABaseBinding;
  * Created by nanchaodong on 2017/3/20.
  */
 
-public abstract class BaseActivity<SV extends ViewDataBinding> extends Activity {
+public abstract class BaseActivity<SV extends ViewDataBinding> extends AppCompatActivity {
     protected ABaseBinding aBaseBinding;
     protected SV bindView;
 

@@ -7,6 +7,7 @@ import com.wolf.recyclerview.bean.Article;
 import com.wolf.recyclerview.bean.Banner;
 import com.wolf.recyclerview.bean.Btn;
 import com.wolf.recyclerview.bean.ButtonTitle;
+import com.wolf.recyclerview.bean.ClassInfo;
 import com.wolf.recyclerview.bean.Footer;
 import com.wolf.recyclerview.bean.Nation;
 import com.wolf.recyclerview.bean.NewGroup;
@@ -15,6 +16,7 @@ import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.People;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
+import com.wolf.recyclerview.bean.Video;
 import com.wolf.recyclerview.holder.BaseViewHolder;
 
 /**
@@ -48,6 +50,10 @@ public interface TypeFactory {
     int type(NewsTag newsTag);
 
     int type(TopTag topTag);
+
+    int type(Video video);
+
+    int type(ClassInfo classInfo);
 
     BaseViewHolder createViewHolder(int type, View itemView);
 }

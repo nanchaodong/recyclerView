@@ -8,6 +8,7 @@ import com.wolf.recyclerview.bean.Article;
 import com.wolf.recyclerview.bean.Banner;
 import com.wolf.recyclerview.bean.Btn;
 import com.wolf.recyclerview.bean.ButtonTitle;
+import com.wolf.recyclerview.bean.ClassInfo;
 import com.wolf.recyclerview.bean.Nation;
 import com.wolf.recyclerview.bean.Footer;
 import com.wolf.recyclerview.bean.NewGroup;
@@ -16,12 +17,14 @@ import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.People;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
+import com.wolf.recyclerview.bean.Video;
 import com.wolf.recyclerview.holder.ArticleHolder;
 import com.wolf.recyclerview.holder.BannerHolder;
 import com.wolf.recyclerview.holder.BaseViewHolder;
 import com.wolf.recyclerview.holder.ButtonHeaderHolder;
 import com.wolf.recyclerview.holder.ButtonHeaderItem;
 import com.wolf.recyclerview.holder.ButtonHolder;
+import com.wolf.recyclerview.holder.ClassItemHolder;
 import com.wolf.recyclerview.holder.FooterHolder;
 
 import com.wolf.recyclerview.holder.NewsOneHolder;
@@ -29,6 +32,7 @@ import com.wolf.recyclerview.holder.NewsTagHolder;
 import com.wolf.recyclerview.holder.NewsTwoHolder;
 import com.wolf.recyclerview.holder.PeopleHolder;
 import com.wolf.recyclerview.holder.TitleHolder;
+import com.wolf.recyclerview.holder.VideoItemHolder;
 
 /**
  * Created by nanchaodong on 2017/3/3.
@@ -47,6 +51,8 @@ public class TypeFactoryList implements TypeFactory {
     private final int button_header = R.layout.button_header;
     private final int button_header_item = R.layout.button_header_item;
     private final int new_top_item = R.layout.news_tag_iten;
+    private final int class_item = R.layout.class_item;
+    private final int video_item = R.layout.video_item;
 
     @Override
 
@@ -121,6 +127,16 @@ public class TypeFactoryList implements TypeFactory {
     }
 
     @Override
+    public int type(Video video) {
+        return video_item;
+    }
+
+    @Override
+    public int type(ClassInfo classInfo) {
+        return class_item;
+    }
+
+    @Override
     public BaseViewHolder createViewHolder(int type, View itemView) {
         switch (type) {
             case article_item:
@@ -145,6 +161,10 @@ public class TypeFactoryList implements TypeFactory {
                 return new NewsTagHolder(itemView);
             case button_header_item:
                 return new ButtonHeaderItem(itemView);
+            case class_item:
+                return new ClassItemHolder(itemView);
+            case video_item:
+                return new VideoItemHolder(itemView);
             default:
                 return null;
         }
