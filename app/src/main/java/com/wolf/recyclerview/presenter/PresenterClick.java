@@ -4,6 +4,7 @@ import android.view.View;
 
 import com.wolf.recyclerview.bean.Banner;
 import com.wolf.recyclerview.bean.Nation;
+import com.wolf.recyclerview.bean.News;
 
 import java.security.PublicKey;
 
@@ -19,6 +20,9 @@ public class PresenterClick {
 
     }
     public void clickNationButton(View view, Nation nation){
+
+    }
+    public void  clickNews(News news){
 
     }
 }

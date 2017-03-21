@@ -1,5 +1,9 @@
 package com.wolf.recyclerview.bean;
 
+import android.databinding.BaseObservable;
+import android.databinding.Bindable;
+
+import com.wolf.recyclerview.BR;
 import com.wolf.recyclerview.presenter.TypeFactory;
 import com.wolf.recyclerview.presenter.Visitable;
 
@@ -7,7 +11,7 @@ import com.wolf.recyclerview.presenter.Visitable;
  * Created by nanchaodong on 2017/3/7.
  */
 
-public class News implements Visitable {
+public class News extends BaseObservable implements Visitable {
     private String articleId;
     private String userId;
     private String title;
@@ -77,10 +81,11 @@ public class News implements Visitable {
     public void setTitle(String title) {
         this.title = title;
     }
-
+    @Bindable
     public String getReadCount() {
         return readCount;
     }
+
 
     public void setReadCount(String readCount) {
         this.readCount = readCount;
@@ -132,6 +137,13 @@ public class News implements Visitable {
 
     public void setCollection(boolean collection) {
         isCollection = collection;
+    }
+
+    public void addReadCount() {
+        int readC = Integer.valueOf(this.readCount);
+        readC++;
+        this.readCount = readC + "";
+        notifyPropertyChanged(BR.readCount);
     }
 
     @Override
