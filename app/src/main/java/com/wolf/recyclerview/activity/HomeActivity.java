@@ -29,6 +29,7 @@ public class HomeActivity extends BaseActivity<ActivityMainBinding> {
         List<Visitable> list = new ArrayList<Visitable>();
         list.add(new ClassInfo("多样化recyclerView列表", MainActivity.class));
         list.add(new ClassInfo("视屏列表", VideoActivity.class));
+        list.add(new ClassInfo("流失布局", FlowActivity.class));
         adapter = new CommonAdapter(this);
         bindView.recyclerView.setAdapter(adapter);
         manager = new GridLayoutManager(this, 1);
