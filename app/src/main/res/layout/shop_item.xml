@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="shop"
+            type="com.wolf.recyclerview.bean.Shop"/>
+
+        <import type="android.view.View"/>
+
+        <import type="java.lang.Boolean"/>
+    </data>
+
+    <LinearLayout
+        android:id="@+id/item_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/imageview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            app:imageUrl="@{shop.preface.fixw}"/>
+
+        <TextView
+            style="@style/common_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/d5"
+            android:text="@{shop.name}"/>
+
+        <RelativeLayout
+
+            style="@style/common_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/image_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorAccent"
+                android:textSize="18sp"
+                app:price="@{shop.price}"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="@dimen/d5"
+                android:layout_toRightOf="@id/image_price"
+                android:textSize="15sp"
+                app:oldPrice="@{shop.orig_price}"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerInParent="true"
+                android:background="@color/colorAccent"
+                android:paddingBottom="@dimen/d2"
+                android:paddingLeft="@dimen/d5"
+                android:paddingRight="@dimen/d5"
+                android:paddingTop="@dimen/d2"
+                android:text="积分"
+                android:textColor="@android:color/white"
+                android:textSize="8sp"
+                android:visibility="@{shop.jf == 0 ? View.GONE : View.VISIBLE}"/>
+        </RelativeLayout>
+
+        <TextView
+            style="@style/common_margin"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d05"
+            android:layout_marginTop="@dimen/d2"
+            android:background="#676767"
+            />
+
+        <RelativeLayout
+            style="@style/common_margin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/d5"
+            android:layout_marginTop="@dimen/d5">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@drawable/go_on_ing"
+                android:text="进行中"
+                android:textColor="@android:color/holo_green_light"
+                android:textSize="10sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:textSize="12sp"
+                app:sold="@{shop.sold_cc}"
+                />
+        </RelativeLayout>
+
+    </LinearLayout>
+</layout>

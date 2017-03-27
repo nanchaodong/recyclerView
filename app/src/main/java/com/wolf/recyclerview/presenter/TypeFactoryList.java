@@ -15,6 +15,7 @@ import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.People;
+import com.wolf.recyclerview.bean.Shop;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
 import com.wolf.recyclerview.bean.Video;
@@ -31,6 +32,7 @@ import com.wolf.recyclerview.holder.NewsOneHolder;
 import com.wolf.recyclerview.holder.NewsTagHolder;
 import com.wolf.recyclerview.holder.NewsTwoHolder;
 import com.wolf.recyclerview.holder.PeopleHolder;
+import com.wolf.recyclerview.holder.ShopHolder;
 import com.wolf.recyclerview.holder.TitleHolder;
 import com.wolf.recyclerview.holder.VideoItemHolder;
 
@@ -53,6 +55,7 @@ public class TypeFactoryList implements TypeFactory {
     private final int new_top_item = R.layout.news_tag_iten;
     private final int class_item = R.layout.class_item;
     private final int video_item = R.layout.video_item;
+    private final int shop_item = R.layout.shop_item;
 
     @Override
 
@@ -137,6 +140,11 @@ public class TypeFactoryList implements TypeFactory {
     }
 
     @Override
+    public int type(Shop shop) {
+        return shop_item;
+    }
+
+    @Override
     public BaseViewHolder createViewHolder(int type, View itemView) {
         switch (type) {
             case article_item:
@@ -165,6 +173,8 @@ public class TypeFactoryList implements TypeFactory {
                 return new ClassItemHolder(itemView);
             case video_item:
                 return new VideoItemHolder(itemView);
+            case shop_item:
+                return new ShopHolder(itemView);
             default:
                 return null;
         }

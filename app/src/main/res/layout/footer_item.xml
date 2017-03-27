@@ -3,6 +3,8 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="footer"
             type="com.wolf.recyclerview.bean.Footer"/>
@@ -12,15 +14,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:paddingTop="5dp"
+        android:orientation="horizontal"
         android:paddingBottom="5dp"
-        android:background="#a097af"
-        android:orientation="vertical">
+        android:paddingTop="5dp"
+        android:visibility="@{footer.status ? View.VISIBLE : View.GONE}">
+
+        <ProgressBar
+            android:layout_width="@dimen/d20"
+            android:layout_height="@dimen/d20"
+            android:visibility="@{footer.id == 0 ? View.VISIBLE :View.GONE}"/>
 
         <TextView
             android:id="@+id/text_msg"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/d10"
             android:text="@{footer.msg}"
             />
 

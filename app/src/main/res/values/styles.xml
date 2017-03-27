@@ -7,5 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="common_margin">
+        <item name="android:layout_marginRight">@dimen/d5</item>
+        <item name="android:layout_marginLeft">@dimen/d5</item>
+    </style>
 
 </resources>

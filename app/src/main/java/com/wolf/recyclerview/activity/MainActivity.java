@@ -1,11 +1,8 @@
 package com.wolf.recyclerview.activity;
 
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 
@@ -20,10 +17,11 @@ import com.wolf.recyclerview.utils.Task;
 
 import java.util.List;
 
+import lib.homhomlib.design.SlidingLayout;
 import rx.Subscriber;
 
 public class MainActivity extends BaseActivity<ActivityMainBinding> {
-    private static final String TAG = "MainActivity";
+    private static final String TAG = "MainActivitysss";
     private GridLayoutManager manager;
     private CommonAdapter adapter;
 
@@ -31,23 +29,23 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Log.i(TAG, "onCreate: ");
         manager = new GridLayoutManager(this, 4);
         manager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
             @Override
             public int getSpanSize(int position) {
-                if (adapter.getType(position).equals(Advert.TYPE)){
+                if (adapter.getType(position).equals(Advert.TYPE)) {
                     return manager.getSpanCount();
-                }else if (adapter.getType(position).equals(Title.TYPE)){
+                } else if (adapter.getType(position).equals(Title.TYPE)) {
                     return manager.getSpanCount();
-                }else if (adapter.getType(position).equals("News")){
+                } else if (adapter.getType(position).equals("News")) {
                     News news = (News) adapter.getBean(position);
-                    if (news.getCollum() == 1){
+                    if (news.getCollum() == 1) {
                         return manager.getSpanCount();
-                    }else {
+                    } else {
                         return 2;
                     }
-                }
-                else {
+                } else {
                     return 1;
                 }
             }
@@ -55,17 +53,23 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
         adapter = new CommonAdapter(this);
         bindView.recyclerView.setLayoutManager(manager);
         bindView.recyclerView.setAdapter(adapter);
-        bindView.recyclerView.addOnChildAttachStateChangeListener(new RecyclerView.OnChildAttachStateChangeListener() {
+        bindView.slidingLayout.setSlidingListener(new SlidingLayout.SlidingListener() {
             @Override
-            public void onChildViewAttachedToWindow(View view) {
-                Log.i(TAG, "onChildViewAttachedToWindow: " + view.toString());
+            public void onSlidingOffset(View view, float delta) {
+                Log.i(TAG, "onSlidingOffset: " + delta);
             }
 
             @Override
-            public void onChildViewDetachedFromWindow(View view) {
-                Log.i(TAG, "onChildViewDetachedFromWindow: " +  view.toString());
+            public void onSlidingStateChange(View view, int state) {
+            }
+
+            @Override
+            public void onSlidingChangePointer(View view, int pointerId) {
+                Log.i(TAG, "onSlidingChangePointer: " + pointerId);
+
             }
         });
+
     }
 
     @Override

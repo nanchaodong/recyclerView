@@ -17,8 +17,13 @@ public class HttpParams {
     private int catId;
     private int startIndex;
     private int pageSize;
+    private String platform;
+    private String device_token;
+    private String version;
+    private String offset;
     private Map<String, Object> map;
     private Map<String, RequestBody> bodyMap;
+    private Map<String, RequestBody> otherMap;
     private static final MediaType text_type = MediaType.parse("text/plain");
     private static final MediaType image_type = MediaType.parse("multipart/form-data");
 
@@ -26,6 +31,36 @@ public class HttpParams {
     public HttpParams() {
         map = new HashMap<String, Object>();
         bodyMap = new HashMap<String, RequestBody>();
+        otherMap = new HashMap<String, RequestBody>();
+    }
+
+    public void setPlatform(String platform) {
+        this.platform = platform;
+        map.put("platform", platform);
+        otherMap.put("platform", convertToRequestBody(platform));
+
+    }
+
+    public void setDevice_token(String device_token) {
+        this.device_token = device_token;
+        map.put("device_token", device_token);
+        otherMap.put("device_token", convertToRequestBody(device_token));
+
+
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+        map.put("version", version);
+        otherMap.put("version", convertToRequestBody(version));
+
+    }
+
+    public void setOffset(String offset) {
+        this.offset = offset;
+        map.put("offset", offset);
+        otherMap.put("offset", convertToRequestBody(offset));
+
     }
 
     public void setCountry(String country) {
@@ -52,6 +87,13 @@ public class HttpParams {
         Gson gson = new Gson();
         bodyMap.put("jsonParams", RequestBody.create(MediaType.parse("text/plain"), gson.toJson(map)));
         return bodyMap;
+    }
+
+    public RequestBody convertToRequestBody(String value) {
+        return RequestBody.create(text_type, value);
+    }
+    public Map<String, RequestBody> getOtherMap(){
+        return otherMap;
     }
 
 }

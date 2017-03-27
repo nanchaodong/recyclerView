@@ -1,18 +1,14 @@
 package com.wolf.recyclerview;
 
-import android.text.AndroidCharacter;
-
 import com.google.gson.Gson;
-import com.google.gson.stream.JsonReader;
-import com.google.gson.stream.MalformedJsonException;
-import com.wolf.recyclerview.bean.Advert;
-import com.wolf.recyclerview.bean.Banner;
-import com.wolf.recyclerview.bean.Top;
+import com.google.gson.reflect.TypeToken;
+import com.wolf.recyclerview.bean.Result;
+import com.wolf.recyclerview.bean.TestBook;
 
 import org.junit.Test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.lang.reflect.Type;
+import java.sql.SQLException;
 
 import static org.junit.Assert.*;
 
@@ -28,13 +24,27 @@ public class ExampleUnitTest {
     }
 
     @Test
-    public void json() throws MalformedJsonException {
-        Map<String, Object> maps = new HashMap<String, Object>();
-        maps.put("username","nanchaodong");
-        maps.put("password","123456");
-        Gson gson = new Gson();
-        String str = gson.toJson(maps);
-        System.out.print(str);
+    public void addSq() {
+        String json = "{data:{\"name\":\"nanchaodong\",\"title\":\"ashffhj\",\"age\":\"12\"}}";
+        Util<TestBook> testBookUtil = new Util<TestBook>();
+        Result<TestBook> result = testBookUtil.gettResult(json);
+        System.out.print(result.getData().toString());
 
     }
+    private class Util<T>{
+        private Result<T> tResult;
+        private Type type;
+        private Gson gson;
+        private T t;
+        public Util(){
+            gson = new Gson();
+            type = new TypeToken<T>(){
+
+            }.getType();
+        }
+        public Result<T> gettResult(String a){
+            return gson.fromJson(a, type);
+        }
+    }
+
 }

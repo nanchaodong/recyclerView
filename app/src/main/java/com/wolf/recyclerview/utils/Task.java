@@ -10,9 +10,11 @@ import com.wolf.recyclerview.bean.Nation;
 import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
+import com.wolf.recyclerview.bean.Result;
+import com.wolf.recyclerview.bean.Shop;
+import com.wolf.recyclerview.bean.ShopList;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
-import com.wolf.recyclerview.bean.Transfer;
 import com.wolf.recyclerview.presenter.HttpResultFunc;
 import com.wolf.recyclerview.presenter.RetrofitHttpClient;
 import com.wolf.recyclerview.presenter.Visitable;
@@ -57,6 +59,18 @@ public class Task {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(s);
     }
+
+    public void getShop(Subscriber<Result<ShopList>> subscriber) {
+        HttpParams httpParams = new HttpParams();
+        httpParams.setPlatform("android");
+        httpParams.setDevice_token("Asv4x7aECQJWsGxpchPIC6IOb_eX8qJDk2q7P1EWf0pE");
+        httpParams.setVersion("4.6.0.0");
+        httpParams.setOffset("0");
+
+        Observable observable = retrofitHttpClient.getShop("http://api.putibaby.com/master/get_jfsc_list", httpParams.getOtherMap());
+        toSubscribe(observable, subscriber);
+    }
+
 
     public void getCountry(Subscriber<List<Visitable>> subscriber, Map<String, RequestBody> map) {
         Observable observable = retrofitHttpClient.getCountryNews(map)

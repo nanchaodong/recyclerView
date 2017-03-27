@@ -29,4 +29,7 @@ public class PresenterClick {
     public void clickClass(ClassInfo classInfo){
 
     }
+    public void query(){
+
+    }
 }

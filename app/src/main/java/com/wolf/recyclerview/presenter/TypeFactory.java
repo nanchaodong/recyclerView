@@ -14,6 +14,7 @@ import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.People;
+import com.wolf.recyclerview.bean.Shop;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
 import com.wolf.recyclerview.bean.Video;
@@ -54,6 +55,8 @@ public interface TypeFactory {
     int type(Video video);
 
     int type(ClassInfo classInfo);
+
+    int type(Shop shop);
 
     BaseViewHolder createViewHolder(int type, View itemView);
 }
