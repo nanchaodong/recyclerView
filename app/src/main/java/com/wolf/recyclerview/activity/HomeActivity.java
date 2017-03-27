@@ -30,7 +30,7 @@ public class HomeActivity extends BaseActivity<ActivityMainBinding> {
         list.add(new ClassInfo("多样化recyclerView列表", MainActivity.class));
         list.add(new ClassInfo("视屏列表", VideoActivity.class));
         list.add(new ClassInfo("流失布局", FlowActivity.class));
-        list.add(new ClassInfo("数据库", SqActivity.class));
+        list.add(new ClassInfo("瀑布流", SqActivity.class));
         list.add(new ClassInfo("web", WebActivity.class));
         adapter = new CommonAdapter(this);
         bindView.recyclerView.setAdapter(adapter);

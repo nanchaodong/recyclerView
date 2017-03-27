@@ -25,13 +25,5 @@ public class ShopHolder extends BaseViewHolder<Shop, ShopItemBinding> {
     @Override
     public void setBean(Shop model, int position, BaseAdapter adapter) {
         bindingView.setShop(model);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        int top = context.getResources().getDimensionPixelSize(R.dimen.d20);
-        int left = position % 2 == 0 ? context.getResources().getDimensionPixelSize(R.dimen.d20) : context.getResources().getDimensionPixelSize(R.dimen.d5);
-        int right = position % 2 == 0 ? context.getResources().getDimensionPixelSize(R.dimen.d5) : context.getResources().getDimensionPixelSize(R.dimen.d20);
-        int bottom = 0;
-        lp.setMargins(left, top, right, bottom);
-        bindingView.itemContainer.setLayoutParams(lp);
-
     }
 }

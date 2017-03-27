@@ -60,13 +60,7 @@ public class Task {
                 .subscribe(s);
     }
 
-    public void getShop(Subscriber<Result<ShopList>> subscriber) {
-        HttpParams httpParams = new HttpParams();
-        httpParams.setPlatform("android");
-        httpParams.setDevice_token("Asv4x7aECQJWsGxpchPIC6IOb_eX8qJDk2q7P1EWf0pE");
-        httpParams.setVersion("4.6.0.0");
-        httpParams.setOffset("0");
-
+    public void getShop(HttpParams httpParams,Subscriber<Result<ShopList>> subscriber) {
         Observable observable = retrofitHttpClient.getShop("http://api.putibaby.com/master/get_jfsc_list", httpParams.getOtherMap());
         toSubscribe(observable, subscriber);
     }

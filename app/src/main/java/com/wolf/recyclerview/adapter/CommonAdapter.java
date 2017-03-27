@@ -1,10 +1,13 @@
 package com.wolf.recyclerview.adapter;
 
+import android.animation.TypeEvaluator;
 import android.content.Context;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.ViewGroup;
 
+import com.wolf.recyclerview.R;
 import com.wolf.recyclerview.bean.Footer;
+import com.wolf.recyclerview.bean.Shop;
 import com.wolf.recyclerview.holder.BaseViewHolder;
 import com.wolf.recyclerview.presenter.Visitable;
 
@@ -16,6 +19,7 @@ import java.util.List;
  */
 
 public class CommonAdapter extends BaseAdapter {
+
     private Footer footer;
 
     public CommonAdapter(Context context) {
@@ -27,14 +31,18 @@ public class CommonAdapter extends BaseAdapter {
     public void addData(List<Visitable> list, boolean flag) {
         this.list.remove(footer);
         if (flag) {
+            int index = this.list.size() - 1;
             this.list.addAll(list);
+            this.list.add(footer);
+            notifyItemInserted(index);
         } else {
             this.list = list;
+            this.list.add(footer);
+            notifyDataSetChanged();
         }
-        this.list.add(footer);
-        notifyDataSetChanged();
-    }
 
+
+    }
 
 
     public void ShowFooter(int id) {
@@ -62,6 +70,9 @@ public class CommonAdapter extends BaseAdapter {
             }
 
 
+
         }
     }
+
+
 }
