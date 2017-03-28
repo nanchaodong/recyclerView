@@ -32,4 +32,7 @@ public class PresenterClick {
     public void query(){
 
     }
+    public void clickToWeb(String url){
+
+    }
 }

@@ -11,8 +11,9 @@ import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.Result;
+import com.wolf.recyclerview.bean.BabyList;
+import com.wolf.recyclerview.bean.School;
 import com.wolf.recyclerview.bean.Shop;
-import com.wolf.recyclerview.bean.ShopList;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
 import com.wolf.recyclerview.presenter.HttpResultFunc;
@@ -60,8 +61,26 @@ public class Task {
                 .subscribe(s);
     }
 
-    public void getShop(HttpParams httpParams,Subscriber<Result<ShopList>> subscriber) {
-        Observable observable = retrofitHttpClient.getShop("http://api.putibaby.com/master/get_jfsc_list", httpParams.getOtherMap());
+    public void getShopList(String url, HttpParams httpParams, Subscriber<BabyList<Shop>> subscriber) {
+        Observable observable = retrofitHttpClient.getshop(url, httpParams.getOtherMap())
+                .map(new Func1<Result<BabyList<Shop>>, BabyList<Shop>>() {
+
+                    @Override
+                    public BabyList<Shop> call(Result<BabyList<Shop>> babyListResult) {
+                        return babyListResult.getData();
+                    }
+                });
+        toSubscribe(observable, subscriber);
+    }
+
+    public void getSchoolList(String url, HttpParams httpParams, Subscriber<List<School>> subscriber) {
+        Observable observable = retrofitHttpClient.getSchool(url, httpParams.getOtherMap())
+                .map(new Func1<Result<BabyList<School>>, List<School>>() {
+                    @Override
+                    public List<School> call(Result<BabyList<School>> babyListResult) {
+                        return babyListResult.getData().getList();
+                    }
+                });
         toSubscribe(observable, subscriber);
     }
 

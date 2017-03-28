@@ -11,6 +11,9 @@
         <import type="android.view.View"/>
 
         <import type="java.lang.Boolean"/>
+        <variable
+            name="presenter"
+            type="com.wolf.recyclerview.presenter.PresenterClick"/>
     </data>
 
     <LinearLayout
@@ -20,6 +23,7 @@
         android:paddingTop="@dimen/d10"
         android:paddingLeft="@dimen/d5"
         android:background="#f6f6f6"
+        android:onClick="@{()->presenter.clickToWeb(shop.url)}"
         android:paddingRight="@dimen/d5">
 
         <LinearLayout

@@ -15,6 +15,8 @@ import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.People;
+import com.wolf.recyclerview.bean.School;
+import com.wolf.recyclerview.bean.SchoolButtonList;
 import com.wolf.recyclerview.bean.Shop;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
@@ -32,6 +34,8 @@ import com.wolf.recyclerview.holder.NewsOneHolder;
 import com.wolf.recyclerview.holder.NewsTagHolder;
 import com.wolf.recyclerview.holder.NewsTwoHolder;
 import com.wolf.recyclerview.holder.PeopleHolder;
+import com.wolf.recyclerview.holder.SchoolButtonItemHolder;
+import com.wolf.recyclerview.holder.SchoolHolder;
 import com.wolf.recyclerview.holder.ShopHolder;
 import com.wolf.recyclerview.holder.TitleHolder;
 import com.wolf.recyclerview.holder.VideoItemHolder;
@@ -56,6 +60,8 @@ public class TypeFactoryList implements TypeFactory {
     private final int class_item = R.layout.class_item;
     private final int video_item = R.layout.video_item;
     private final int shop_item = R.layout.shop_item;
+    private final int school_subject_item = R.layout.school_subject_item;
+    private final int school_button_item = R.layout.school_button_item;
 
     @Override
 
@@ -145,6 +151,16 @@ public class TypeFactoryList implements TypeFactory {
     }
 
     @Override
+    public int type(School school) {
+        return school_subject_item;
+    }
+
+    @Override
+    public int type(SchoolButtonList schoolButtonList) {
+        return school_button_item;
+    }
+
+    @Override
     public BaseViewHolder createViewHolder(int type, View itemView) {
         switch (type) {
             case article_item:
@@ -175,6 +191,10 @@ public class TypeFactoryList implements TypeFactory {
                 return new VideoItemHolder(itemView);
             case shop_item:
                 return new ShopHolder(itemView);
+            case school_subject_item:
+                return new SchoolHolder(itemView);
+            case school_button_item:
+                return new SchoolButtonItemHolder(itemView);
             default:
                 return null;
         }

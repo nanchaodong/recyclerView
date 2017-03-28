@@ -1,12 +1,12 @@
 package com.wolf.recyclerview.presenter;
 
+import com.wolf.recyclerview.bean.BabyList;
 import com.wolf.recyclerview.bean.Information;
 import com.wolf.recyclerview.bean.Result;
+import com.wolf.recyclerview.bean.School;
 import com.wolf.recyclerview.bean.Shop;
-import com.wolf.recyclerview.bean.ShopList;
 import com.wolf.recyclerview.constant.Urls;
 
-import java.util.List;
 import java.util.Map;
 
 import okhttp3.RequestBody;
@@ -30,7 +30,9 @@ public interface RetrofitHttpClient {
 
     @Multipart
     @POST
-    Observable<Result<ShopList>> getShop(@Url String url, @PartMap() Map<String, RequestBody> maps);
+    Observable<Result<BabyList<Shop>>> getshop(@Url String url, @PartMap() Map<String, RequestBody> maps);
 
-
+    @Multipart
+    @POST
+    Observable<Result<BabyList<School>>> getSchool(@Url String url, @PartMap() Map<String, RequestBody> maps);
 }

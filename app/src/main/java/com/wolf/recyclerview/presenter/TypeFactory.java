@@ -1,5 +1,6 @@
 package com.wolf.recyclerview.presenter;
 
+import android.content.Intent;
 import android.view.View;
 
 import com.wolf.recyclerview.bean.Advert;
@@ -14,10 +15,13 @@ import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.People;
+import com.wolf.recyclerview.bean.School;
+import com.wolf.recyclerview.bean.SchoolButtonList;
 import com.wolf.recyclerview.bean.Shop;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
 import com.wolf.recyclerview.bean.Video;
+import com.wolf.recyclerview.controller.SchoolListRecy;
 import com.wolf.recyclerview.holder.BaseViewHolder;
 
 /**
@@ -57,6 +61,10 @@ public interface TypeFactory {
     int type(ClassInfo classInfo);
 
     int type(Shop shop);
+
+    int type(School school);
+
+    int type(SchoolButtonList schoolButtonList);
 
     BaseViewHolder createViewHolder(int type, View itemView);
 }

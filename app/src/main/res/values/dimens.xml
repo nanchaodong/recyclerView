@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="d20">20dp</dimen>
+    <dimen name="d40">40dp</dimen>
+    <dimen name="d47">47dp</dimen>
+    <dimen name="d46">46dp</dimen>
     <dimen name="d5">5dp</dimen>
     <dimen name="d10">10dp</dimen>
     <dimen name="d2">2dp</dimen>
+    <dimen name="d0">0dp</dimen>
     <dimen name="d05">0.5dp</dimen>
+    <dimen name="d100">100dp</dimen>
 </resources>

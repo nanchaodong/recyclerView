@@ -7,6 +7,7 @@ import android.support.v7.widget.GridLayoutManager;
 import com.wolf.recyclerview.R;
 import com.wolf.recyclerview.adapter.CommonAdapter;
 import com.wolf.recyclerview.bean.ClassInfo;
+import com.wolf.recyclerview.controller.SchoolListRecy;
 import com.wolf.recyclerview.databinding.ActivityMainBinding;
 import com.wolf.recyclerview.presenter.Visitable;
 
@@ -32,6 +33,8 @@ public class HomeActivity extends BaseActivity<ActivityMainBinding> {
         list.add(new ClassInfo("流失布局", FlowActivity.class));
         list.add(new ClassInfo("瀑布流", SqActivity.class));
         list.add(new ClassInfo("web", WebActivity.class));
+        list.add(new ClassInfo("学科", SchoolActivity.class));
+        list.add(new ClassInfo("输入验证码", CodeActivity.class));
         adapter = new CommonAdapter(this);
         bindView.recyclerView.setAdapter(adapter);
         manager = new GridLayoutManager(this, 1);

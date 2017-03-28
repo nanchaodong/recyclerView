@@ -25,26 +25,11 @@ public class ExampleUnitTest {
 
     @Test
     public void addSq() {
-        String json = "{data:{\"name\":\"nanchaodong\",\"title\":\"ashffhj\",\"age\":\"12\"}}";
-        Util<TestBook> testBookUtil = new Util<TestBook>();
-        Result<TestBook> result = testBookUtil.gettResult(json);
-        System.out.print(result.getData().toString());
+        String url = "http://h5.putibaby.com/[VER]/master/jfsc_product?id=44";
+        String path = url.replace("[VER]","4.6");
+        System.out.print(path);
 
     }
-    private class Util<T>{
-        private Result<T> tResult;
-        private Type type;
-        private Gson gson;
-        private T t;
-        public Util(){
-            gson = new Gson();
-            type = new TypeToken<T>(){
 
-            }.getType();
-        }
-        public Result<T> gettResult(String a){
-            return gson.fromJson(a, type);
-        }
-    }
 
 }

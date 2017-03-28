@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+    <data>
+
+        <variable
+            name="security"
+            type="com.wolf.recyclerview.view.SecurityCodeView"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/d47"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:weightSum="3">
+
+            <TextView
+                android:id="@+id/item_code_iv1"
+                style="@style/text_edit_style"
+                />
+
+            <View
+                android:layout_width="@dimen/d0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/item_code_iv2"
+                style="@style/text_edit_style"
+                />
+
+            <View
+                android:layout_width="@dimen/d0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/item_code_iv3"
+                style="@style/text_edit_style"
+                />
+
+            <View
+                android:layout_width="@dimen/d0"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:id="@+id/item_code_iv4"
+                style="@style/text_edit_style"
+                />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/item_editText"
+            addTextChangedListener="@{security.textWatcher}"
+            setOnKeyListener="@{security.keyListener}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d46"
+            android:background="@android:color/transparent"
+            android:cursorVisible="false"
+            android:inputType="number"/>
+    </RelativeLayout>
+
+</layout>

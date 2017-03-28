@@ -17,19 +17,22 @@
         <activity
             android:name=".activity.MainActivity"
             android:screenOrientation="portrait">
-
-        </activity>
-        <activity android:name=".activity.CountryActivity"/>
-        <activity android:name=".activity.HomeActivity">
             <intent-filter>
                 <category android:name="android.intent.category.LAUNCHER"/>
                 <action android:name="android.intent.action.MAIN"/>
             </intent-filter>
         </activity>
+        <activity android:name=".activity.CountryActivity"/>
+        <activity android:name=".activity.HomeActivity">
+
+        </activity>
         <activity android:name=".activity.VideoActivity"/>
         <activity android:name=".activity.FlowActivity"/>
         <activity android:name=".activity.SqActivity"/>
         <activity android:name=".activity.WebActivity"/>
+        <activity android:name=".activity.SchoolActivity"/>
+        <activity android:name=".activity.CodeActivity"/>
+
 
         <meta-data
             android:name="DATABASE"

@@ -21,6 +21,7 @@ public class HttpParams {
     private String device_token;
     private String version;
     private String offset;
+    private String token;
     private Map<String, Object> map;
     private Map<String, RequestBody> bodyMap;
     private Map<String, RequestBody> otherMap;
@@ -47,6 +48,12 @@ public class HttpParams {
         otherMap.put("device_token", convertToRequestBody(device_token));
 
 
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+        map.put("token", token);
+        otherMap.put("token", convertToRequestBody(token));
     }
 
     public void setVersion(String version) {

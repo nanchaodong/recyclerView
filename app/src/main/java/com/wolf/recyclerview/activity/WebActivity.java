@@ -12,6 +12,7 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.wolf.recyclerview.R;
+import com.wolf.recyclerview.constant.Constant;
 import com.wolf.recyclerview.databinding.AWebBinding;
 
 /**
@@ -20,13 +21,14 @@ import com.wolf.recyclerview.databinding.AWebBinding;
 
 public class WebActivity extends BaseActivity<AWebBinding> {
     private static final String TAG = "WebActivity";
-    String url = "http://h5.putibaby.com/4.6/master/jfsc_product?id=44";
+    private String url;
     private WebSettings ws;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.a_web);
+        url = getIntent().getStringExtra(Constant.INTENT_URL);
         ws = bindView.webView.getSettings();
         // 网页内容的宽度是否可大于WebView控件的宽度
         ws.setLoadWithOverviewMode(false);
@@ -94,5 +96,16 @@ public class WebActivity extends BaseActivity<AWebBinding> {
             }
         });
         bindView.webView.loadUrl(url);
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (bindView.webView.canGoBack()) {
+            bindView.webView.goBack();
+        } else {
+            super.onBackPressed();
+            bindView.webView.destroy();
+
+        }
     }
 }

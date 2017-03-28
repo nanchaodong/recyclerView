@@ -27,6 +27,10 @@ public class BindUtils {
     public static void showImage(ImageView imageView, String url) {
         Glide.with(imageView.getContext()).load(url).placeholder(R.mipmap.ic_loading).into(imageView);
     }
+    @BindingAdapter("imageId")
+    public static void showImage(ImageView imageView,int drawableId){
+        Glide.with(imageView.getContext()).load(drawableId).placeholder(R.mipmap.ic_loading).into(imageView);
+    }
 
     @BindingAdapter("price")
     public static void showPrice(TextView textView, int price) {
@@ -48,29 +52,13 @@ public class BindUtils {
         textView.setText(sold + "件已售");
     }
 
-    @BindingAdapter("soldImageUrl")
-    public static void showShopImage(final ImageView imageView, String url) {
-        final ViewGroup.LayoutParams lp = imageView.getLayoutParams();
-        final int width = lp.width;
-        ViewTarget<View, Bitmap> target = new ViewTarget<View, Bitmap>(imageView) {
-            @Override
-            public void onResourceReady(final Bitmap resource, GlideAnimation<? super Bitmap> glideAnimation) {
-                int  scaleType = resource.getHeight() / resource.getWidth();
-                int imageHeight = width * scaleType;
-                lp.height = imageHeight;
-                imageView.post(new Runnable() {
-                    @Override
-                    public void run() {
-                        imageView.setLayoutParams(lp);
-                        imageView.setImageBitmap(resource);
-                    }
-                });
-
-
-            }
-        };
-        Glide.with(imageView.getContext()).load(url).asBitmap().placeholder(R.mipmap.ic_loading).into(target);
-
+    @BindingAdapter("gradle")
+    public static void gradle(TextView textView, String gradle){
+        textView.setText(gradle + "学分");
+    }
+    @BindingAdapter("reg_cc")
+    public static void commit(TextView textView, String reg_cc){
+        textView.setText(reg_cc + "已报名");
 
     }
 }

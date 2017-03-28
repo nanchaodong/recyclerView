@@ -6,27 +6,27 @@ import java.util.List;
  * Created by nanchaodong on 2017/3/27.
  */
 
-public class ShopList {
-    private List<Shop> list;
+public class BabyList<T> {
+    private List<T> list;
 
-    public ShopList(List<Shop> list) {
+    public BabyList(List<T> list) {
         this.list = list;
     }
 
-    public ShopList() {
+    public BabyList() {
     }
 
-    public List<Shop> getList() {
+    public List<T> getList() {
         return list;
     }
 
-    public void setList(List<Shop> list) {
+    public void setList(List<T> list) {
         this.list = list;
     }
 
     @Override
     public String toString() {
-        return "ShopList{" +
+        return "BabyList{" +
                 "list=" + list +
                 '}';
     }

@@ -7,9 +7,26 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
     <style name="common_margin">
         <item name="android:layout_marginRight">@dimen/d5</item>
         <item name="android:layout_marginLeft">@dimen/d5</item>
+    </style>
+
+    <style name="school_subject_item">
+        <item name="android:layout_marginRight">@dimen/d20</item>
+        <item name="android:layout_marginLeft">@dimen/d20</item>
+        <item name="android:layout_marginTop">@dimen/d10</item>
+        <item name="android:layout_marginBottom">@dimen/d10</item>
+    </style>
+
+    <style name="text_edit_style">
+        <item name="android:layout_height">@dimen/d47</item>
+        <item name="android:layout_width">@dimen/d47</item>
+        <item name="android:background">@mipmap/bg_verify</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/common_blue_0090FF</item>
+        <item name="android:textSize">18sp</item>
     </style>
 
 </resources>

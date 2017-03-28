@@ -68,9 +68,6 @@ public class CommonAdapter extends BaseAdapter {
             if (type.equals("Footer")) {
                 p.setFullSpan(true);
             }
-
-
-
         }
     }
 

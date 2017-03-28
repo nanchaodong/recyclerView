@@ -3,9 +3,11 @@ package com.wolf.recyclerview.controller;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.RecyclerView;
 
+import com.wolf.recyclerview.R;
 import com.wolf.recyclerview.adapter.CommonAdapter;
-import com.wolf.recyclerview.bean.BabyList;
-import com.wolf.recyclerview.bean.Shop;
+import com.wolf.recyclerview.bean.School;
+import com.wolf.recyclerview.bean.SchoolButton;
+import com.wolf.recyclerview.bean.SchoolButtonList;
 import com.wolf.recyclerview.constant.Urls;
 import com.wolf.recyclerview.presenter.ListRecy;
 import com.wolf.recyclerview.presenter.Visitable;
@@ -21,29 +23,41 @@ import rx.Subscriber;
  * Created by nanchaodong on 2017/3/27.
  */
 
-public class ShopListRecy extends ListRecy {
-    private HttpParams httpParams;
+public class SchoolListRecy extends ListRecy {
 
-    public ShopListRecy(RecyclerView r, SwipeRefreshLayout rs, CommonAdapter a, boolean hasFooter) {
+    private HttpParams httpParams;
+    private SchoolButtonList schoolButtonList;
+    private List<SchoolButton> buttons;
+    private SchoolButton schoolButton;
+    private SchoolButton schoolButton1;
+    private SchoolButton schoolButton2;
+
+    public SchoolListRecy(RecyclerView r, SwipeRefreshLayout rs, CommonAdapter a, boolean hasFooter) {
         super(r, rs, a, hasFooter);
         httpParams = new HttpParams();
         httpParams.setPlatform("android");
         httpParams.setDevice_token("Asv4x7aECQJWsGxpchPIC6IOb_eX8qJDk2q7P1EWf0pE");
         httpParams.setVersion("4.6.0.0");
         httpParams.setOffset(offset + "");
-
+        httpParams.setToken("api-c5a641d2f352220fae89db32b37fc4ab");
+        buttons = new ArrayList<SchoolButton>();
+        schoolButton = new SchoolButton(R.mipmap.ame, "我的课程");
+        schoolButton1 = new SchoolButton(R.mipmap.ero, "学历");
+        schoolButton2 = new SchoolButton(R.mipmap.japan, "奖学金");
+        buttons.add(schoolButton);
+        buttons.add(schoolButton1);
+        buttons.add(schoolButton2);
+        schoolButtonList = new SchoolButtonList(buttons);
     }
 
     @Override
     public void down() {
         offset = 0;
         httpParams.setOffset(offset + "");
-        Task.getInstance().getShopList(Urls.SHOP_URL, httpParams, new Subscriber<BabyList<Shop>>() {
-
+        Task.getInstance().getSchoolList(Urls.SCHOOL_URL, httpParams, new Subscriber<List<School>>() {
             @Override
             public void onCompleted() {
                 refreshLayout.setRefreshing(false);
-
             }
 
             @Override
@@ -52,23 +66,22 @@ public class ShopListRecy extends ListRecy {
             }
 
             @Override
-            public void onNext(BabyList<Shop> shopBabyList) {
+            public void onNext(List<School> schools) {
                 List<Visitable> list = new ArrayList<Visitable>();
-                list.addAll(shopBabyList.getList());
+                list.add(schoolButtonList);
+                list.addAll(schools);
                 adapter.addData(list, false);
 
             }
         });
-
-
-
     }
 
     @Override
     public void up() {
+
         offset += 10;
         httpParams.setOffset(offset + "");
-        Task.getInstance().getShopList(Urls.SHOP_URL, httpParams, new Subscriber<BabyList<Shop>>() {
+        Task.getInstance().getSchoolList(Urls.SCHOOL_URL, httpParams, new Subscriber<List<School>>() {
             @Override
             public void onCompleted() {
 
@@ -76,15 +89,14 @@ public class ShopListRecy extends ListRecy {
 
             @Override
             public void onError(Throwable e) {
-                chageFooterState(1);
 
             }
 
             @Override
-            public void onNext(BabyList<Shop> shopBabyList) {
+            public void onNext(List<School> schools) {
                 List<Visitable> list = new ArrayList<Visitable>();
-                if (shopBabyList.getList() != null && shopBabyList.getList().size() > 0) {
-                    list.addAll(shopBabyList.getList());
+                if (schools != null && schools.size() > 0) {
+                    list.addAll(schools);
                     adapter.addData(list, true);
                     chageLoadingState();
                 } else {
@@ -93,6 +105,6 @@ public class ShopListRecy extends ListRecy {
                 }
             }
         });
-    }
 
+    }
 }

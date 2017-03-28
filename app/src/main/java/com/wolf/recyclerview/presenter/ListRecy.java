@@ -20,7 +20,7 @@ public abstract class ListRecy implements Refresh {
     protected CommonAdapter adapter;
     protected SwipeRefreshLayout refreshLayout;
     protected boolean isLoading;
-
+    protected int offset = 0;
 
     public ListRecy(RecyclerView r, SwipeRefreshLayout rs, CommonAdapter a, boolean hasFooter) {
         this.recyclerView = r;
