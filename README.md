@@ -5,5 +5,7 @@
 4.网络请求使用retrofit+okHttp3来实现网络请求 retrofit不涉及到线程的操作，只需要在网络请求时指定在io线程，返回数据指定主线程  
 5.图片加载的框架是Glide，用法和 picasso 类似，自动实现图片的缓存  
 6.使用android dadabinding处理点击事件 将点击事件全部汇总统一管理，通过baseobserable来监听数据的变化，实时改变ui  
-7.添加自定义流式布局
+7.添加自定义流式布局  
+8.添加瀑布流布局上拉刷新下拉加载  
+9.添加验证码布局 其中edittext与android databinding结合使用
 
