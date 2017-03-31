@@ -7,5 +7,6 @@
 6.使用android dadabinding处理点击事件 将点击事件全部汇总统一管理，通过baseobserable来监听数据的变化，实时改变ui  
 7.添加自定义流式布局  
 8.添加瀑布流布局上拉刷新下拉加载  
-9.添加验证码布局 其中edittext与android databinding结合使用
+9.添加验证码布局 其中edittext与android databinding结合使用  
+10.打造recyclerView和design包下的响应式布局，实现微博动画的效果
 
