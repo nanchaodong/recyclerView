@@ -2,11 +2,42 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     >
 
-    <LinearLayout
-        android:id="@+id/a_container"
+    <data>
+
+        <variable
+            name="show"
+            type="java.lang.Boolean"/>
+
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@android:color/white"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/a_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white"
+            >
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/titleLayout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/d46"
+            android:background="@android:color/white"
+            android:gravity="center"
+            android:visibility="@{show ? View.VISIBLE : View.GONE}">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                />
+        </LinearLayout>
+    </RelativeLayout>
 
 </layout>

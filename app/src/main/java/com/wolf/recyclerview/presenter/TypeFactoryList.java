@@ -1,5 +1,6 @@
 package com.wolf.recyclerview.presenter;
 
+import android.drm.DrmStore;
 import android.view.View;
 
 import com.wolf.recyclerview.R;
@@ -14,7 +15,9 @@ import com.wolf.recyclerview.bean.Footer;
 import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
+import com.wolf.recyclerview.bean.Nurse;
 import com.wolf.recyclerview.bean.People;
+import com.wolf.recyclerview.bean.Result;
 import com.wolf.recyclerview.bean.School;
 import com.wolf.recyclerview.bean.SchoolButtonList;
 import com.wolf.recyclerview.bean.Shop;
@@ -33,12 +36,16 @@ import com.wolf.recyclerview.holder.FooterHolder;
 import com.wolf.recyclerview.holder.NewsOneHolder;
 import com.wolf.recyclerview.holder.NewsTagHolder;
 import com.wolf.recyclerview.holder.NewsTwoHolder;
+import com.wolf.recyclerview.holder.NurseHolder;
 import com.wolf.recyclerview.holder.PeopleHolder;
+import com.wolf.recyclerview.holder.RecyclerHolder;
 import com.wolf.recyclerview.holder.SchoolButtonItemHolder;
 import com.wolf.recyclerview.holder.SchoolHolder;
 import com.wolf.recyclerview.holder.ShopHolder;
 import com.wolf.recyclerview.holder.TitleHolder;
 import com.wolf.recyclerview.holder.VideoItemHolder;
+
+import java.util.List;
 
 /**
  * Created by nanchaodong on 2017/3/3.
@@ -62,6 +69,8 @@ public class TypeFactoryList implements TypeFactory {
     private final int shop_item = R.layout.shop_item;
     private final int school_subject_item = R.layout.school_subject_item;
     private final int school_button_item = R.layout.school_button_item;
+    private final int reycler_item = R.layout.a_country;
+    private final int nurse_item = R.layout.nurse_item;
 
     @Override
 
@@ -161,6 +170,23 @@ public class TypeFactoryList implements TypeFactory {
     }
 
     @Override
+    public int type(Nurse nurse) {
+        return nurse_item;
+    }
+
+    @Override
+    public int type(Result result) {
+        if (result.getData() instanceof List) {
+            List list = (List) result.getData();
+            if (list.get(0) instanceof Nurse) {
+                return reycler_item;
+
+            }
+        }
+        return -1;
+    }
+
+    @Override
     public BaseViewHolder createViewHolder(int type, View itemView) {
         switch (type) {
             case article_item:
@@ -195,6 +221,10 @@ public class TypeFactoryList implements TypeFactory {
                 return new SchoolHolder(itemView);
             case school_button_item:
                 return new SchoolButtonItemHolder(itemView);
+            case reycler_item:
+                return new RecyclerHolder(itemView);
+            case nurse_item:
+                return new NurseHolder(itemView);
             default:
                 return null;
         }

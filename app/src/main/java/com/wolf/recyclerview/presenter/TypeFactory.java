@@ -14,7 +14,9 @@ import com.wolf.recyclerview.bean.Nation;
 import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
+import com.wolf.recyclerview.bean.Nurse;
 import com.wolf.recyclerview.bean.People;
+import com.wolf.recyclerview.bean.Result;
 import com.wolf.recyclerview.bean.School;
 import com.wolf.recyclerview.bean.SchoolButtonList;
 import com.wolf.recyclerview.bean.Shop;
@@ -65,6 +67,10 @@ public interface TypeFactory {
     int type(School school);
 
     int type(SchoolButtonList schoolButtonList);
+
+    int type(Nurse nurse);
+
+    int type(Result result);
 
     BaseViewHolder createViewHolder(int type, View itemView);
 }

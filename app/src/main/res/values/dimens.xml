@@ -10,4 +10,5 @@
     <dimen name="d0">0dp</dimen>
     <dimen name="d05">0.5dp</dimen>
     <dimen name="d100">100dp</dimen>
+    <dimen name="d200">200dp</dimen>
 </resources>

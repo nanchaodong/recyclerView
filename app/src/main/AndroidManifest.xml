@@ -31,6 +31,9 @@
         <activity android:name=".activity.WebActivity"/>
         <activity android:name=".activity.SchoolActivity"/>
         <activity android:name=".activity.CodeActivity"/>
+        <activity android:name=".activity.NurseActivity"/>
+        <activity android:name=".activity.OfferActivity"/>
+        <activity android:name=".activity.ScroolActivity"/>
 
 
         <meta-data

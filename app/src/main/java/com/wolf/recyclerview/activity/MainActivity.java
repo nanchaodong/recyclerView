@@ -2,6 +2,7 @@ package com.wolf.recyclerview.activity;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
 import android.view.View;
@@ -24,6 +25,7 @@ public class MainActivity extends BaseActivity<ActivityMainBinding> {
     private static final String TAG = "MainActivitysss";
     private GridLayoutManager manager;
     private CommonAdapter adapter;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

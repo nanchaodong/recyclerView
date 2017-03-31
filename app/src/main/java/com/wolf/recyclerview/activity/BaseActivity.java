@@ -1,12 +1,12 @@
 package com.wolf.recyclerview.activity;
 
-import android.app.Activity;
 import android.databinding.DataBindingUtil;
 import android.databinding.ViewDataBinding;
 import android.support.annotation.LayoutRes;
 import android.support.v7.app.AppCompatActivity;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 
 import com.wolf.recyclerview.R;
 import com.wolf.recyclerview.databinding.ABaseBinding;
@@ -18,7 +18,7 @@ import com.wolf.recyclerview.databinding.ABaseBinding;
 public abstract class BaseActivity<SV extends ViewDataBinding> extends AppCompatActivity {
     protected ABaseBinding aBaseBinding;
     protected SV bindView;
-    private LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+    private RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
     @Override
     public void setContentView(@LayoutRes int layoutResID) {

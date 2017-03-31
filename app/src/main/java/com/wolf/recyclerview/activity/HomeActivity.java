@@ -35,11 +35,15 @@ public class HomeActivity extends BaseActivity<ActivityMainBinding> {
         list.add(new ClassInfo("web", WebActivity.class));
         list.add(new ClassInfo("学科", SchoolActivity.class));
         list.add(new ClassInfo("输入验证码", CodeActivity.class));
+        list.add(new ClassInfo("列表嵌套列表", NurseActivity.class));
+        list.add(new ClassInfo("offer", OfferActivity.class));
+        list.add(new ClassInfo("scroll", ScroolActivity.class));
         adapter = new CommonAdapter(this);
         bindView.recyclerView.setAdapter(adapter);
         manager = new GridLayoutManager(this, 1);
         bindView.recyclerView.setLayoutManager(manager);
         adapter.addData(list, false);
+        
 
 
     }

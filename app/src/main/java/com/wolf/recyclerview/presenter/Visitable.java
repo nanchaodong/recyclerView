@@ -8,5 +8,6 @@ import java.io.Serializable;
 
 public interface Visitable extends Serializable {
     int type(TypeFactory typeFactory);
+
     String type();
 }

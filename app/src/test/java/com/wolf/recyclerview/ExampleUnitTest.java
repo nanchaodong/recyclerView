@@ -2,6 +2,7 @@ package com.wolf.recyclerview;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.wolf.recyclerview.bean.Nurse;
 import com.wolf.recyclerview.bean.Result;
 import com.wolf.recyclerview.bean.TestBook;
 
@@ -9,6 +10,7 @@ import org.junit.Test;
 
 import java.lang.reflect.Type;
 import java.sql.SQLException;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -25,9 +27,12 @@ public class ExampleUnitTest {
 
     @Test
     public void addSq() {
-        String url = "http://h5.putibaby.com/[VER]/master/jfsc_product?id=44";
-        String path = url.replace("[VER]","4.6");
-        System.out.print(path);
+        String json1 = "{data:[{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"}]}";
+        String json2 = "{data:[{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"},{url:\"http://static.jiemodou.net//proc//News//Wap//images//app-icon-jp@2x.png\",name:\"宝宝体温\"}]}";
+
+        Gson gson = new Gson();
+        Result<List<Nurse>> nurseResult = gson.fromJson(json2, new TypeToken<Result<List<Nurse>>>(){}.getType());
+        System.out.print(nurseResult);
 
     }
 
