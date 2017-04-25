@@ -17,7 +17,7 @@ import java.util.List;
  * Created by nanchaodong on 2017/3/3.
  */
 
-public  class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
+public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private static final String TAG = "BaseAdapter222";
     protected List<Visitable> list;
     private Context mCtx;
@@ -37,7 +37,8 @@ public  class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         }
         return false;
     }
-    public Context getmCtx(){
+
+    public Context getmCtx() {
         return mCtx;
     }
 
@@ -49,6 +50,18 @@ public  class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             this.list = list;
         }
         notifyDataSetChanged();
+    }
+
+    public <T extends Visitable> void addItems(List<T> list) {
+        int startIndex = this.list.size();
+        this.list.addAll(list);
+        notifyItemRangeChanged(startIndex, this.list.size());
+    }
+
+    public <T extends Visitable> void removeItems(List<T> list) {
+        int startIndex = this.list.size();
+        this.list.removeAll(list);
+        notifyItemRangeRemoved(startIndex -1, this.list.size() - 1);
     }
 
     @Override

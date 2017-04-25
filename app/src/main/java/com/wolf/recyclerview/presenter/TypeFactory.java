@@ -1,6 +1,7 @@
 package com.wolf.recyclerview.presenter;
 
 import android.content.Intent;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.wolf.recyclerview.bean.Advert;
@@ -16,13 +17,19 @@ import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.Nurse;
 import com.wolf.recyclerview.bean.People;
+import com.wolf.recyclerview.bean.RecyclerData;
 import com.wolf.recyclerview.bean.Result;
 import com.wolf.recyclerview.bean.School;
 import com.wolf.recyclerview.bean.SchoolButtonList;
 import com.wolf.recyclerview.bean.Shop;
+import com.wolf.recyclerview.bean.Test;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
 import com.wolf.recyclerview.bean.Video;
+import com.wolf.recyclerview.bean.WeiBoButton;
+import com.wolf.recyclerview.bean.WeiBoChildTag;
+import com.wolf.recyclerview.bean.WeiboSearch;
+import com.wolf.recyclerview.bean.WeiboTag;
 import com.wolf.recyclerview.controller.SchoolListRecy;
 import com.wolf.recyclerview.holder.BaseViewHolder;
 
@@ -71,6 +78,18 @@ public interface TypeFactory {
     int type(Nurse nurse);
 
     int type(Result result);
+
+    int type(Test test);
+
+    int type(RecyclerData recyclerData);
+
+    int type(WeiBoButton weiBoButton);
+
+    int type(WeiboTag weiboTag);
+
+    int type(WeiboSearch weiboSearch);
+
+    int type(WeiBoChildTag weiBoChildTag);
 
     BaseViewHolder createViewHolder(int type, View itemView);
 }

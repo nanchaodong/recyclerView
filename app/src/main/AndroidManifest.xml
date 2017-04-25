@@ -34,6 +34,8 @@
         <activity android:name=".activity.NurseActivity"/>
         <activity android:name=".activity.OfferActivity"/>
         <activity android:name=".activity.ScroolActivity"/>
+        <activity android:name=".activity.TestActivity"/>
+        <activity android:name=".activity.WeiBoFindActivity"/>
 
 
         <meta-data

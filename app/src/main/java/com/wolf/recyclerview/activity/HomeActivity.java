@@ -38,6 +38,8 @@ public class HomeActivity extends BaseActivity<ActivityMainBinding> {
         list.add(new ClassInfo("列表嵌套列表", NurseActivity.class));
         list.add(new ClassInfo("offer", OfferActivity.class));
         list.add(new ClassInfo("scroll", ScroolActivity.class));
+        list.add(new ClassInfo("text", TestActivity.class));
+        list.add(new ClassInfo("WeiBoFindActivity", WeiBoFindActivity.class));
         adapter = new CommonAdapter(this);
         bindView.recyclerView.setAdapter(adapter);
         manager = new GridLayoutManager(this, 1);

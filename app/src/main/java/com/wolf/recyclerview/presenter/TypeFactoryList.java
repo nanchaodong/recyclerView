@@ -17,13 +17,19 @@ import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
 import com.wolf.recyclerview.bean.Nurse;
 import com.wolf.recyclerview.bean.People;
+import com.wolf.recyclerview.bean.RecyclerData;
 import com.wolf.recyclerview.bean.Result;
 import com.wolf.recyclerview.bean.School;
 import com.wolf.recyclerview.bean.SchoolButtonList;
 import com.wolf.recyclerview.bean.Shop;
+import com.wolf.recyclerview.bean.Test;
 import com.wolf.recyclerview.bean.Title;
 import com.wolf.recyclerview.bean.TopTag;
 import com.wolf.recyclerview.bean.Video;
+import com.wolf.recyclerview.bean.WeiBoButton;
+import com.wolf.recyclerview.bean.WeiBoChildTag;
+import com.wolf.recyclerview.bean.WeiboSearch;
+import com.wolf.recyclerview.bean.WeiboTag;
 import com.wolf.recyclerview.holder.ArticleHolder;
 import com.wolf.recyclerview.holder.BannerHolder;
 import com.wolf.recyclerview.holder.BaseViewHolder;
@@ -38,12 +44,18 @@ import com.wolf.recyclerview.holder.NewsTagHolder;
 import com.wolf.recyclerview.holder.NewsTwoHolder;
 import com.wolf.recyclerview.holder.NurseHolder;
 import com.wolf.recyclerview.holder.PeopleHolder;
+import com.wolf.recyclerview.holder.RecyHolder;
 import com.wolf.recyclerview.holder.RecyclerHolder;
 import com.wolf.recyclerview.holder.SchoolButtonItemHolder;
 import com.wolf.recyclerview.holder.SchoolHolder;
 import com.wolf.recyclerview.holder.ShopHolder;
+import com.wolf.recyclerview.holder.TestItemHolder;
 import com.wolf.recyclerview.holder.TitleHolder;
 import com.wolf.recyclerview.holder.VideoItemHolder;
+import com.wolf.recyclerview.holder.WeiBoChilTagItemHolder;
+import com.wolf.recyclerview.holder.WeiboButtonHolder;
+import com.wolf.recyclerview.holder.WeiboSearchHolder;
+import com.wolf.recyclerview.holder.WeiboTagItemHolder;
 
 import java.util.List;
 
@@ -71,6 +83,12 @@ public class TypeFactoryList implements TypeFactory {
     private final int school_button_item = R.layout.school_button_item;
     private final int reycler_item = R.layout.a_country;
     private final int nurse_item = R.layout.nurse_item;
+    private final int test_item = R.layout.test_item;
+    private final int recycler_layout_item = R.layout.recycler_layout;
+    private final int weibo_button_item = R.layout.weibo_button_item;
+    private final int weibo_tag_item = R.layout.weibo_tag_item;
+    private final int weibo_search_item = R.layout.weibo_search_item;
+    private final int weibo_child_tag_item = R.layout.weibo_child_tag_item;
 
     @Override
 
@@ -187,6 +205,36 @@ public class TypeFactoryList implements TypeFactory {
     }
 
     @Override
+    public int type(Test test) {
+        return test_item;
+    }
+
+    @Override
+    public int type(RecyclerData recyclerData) {
+        return recycler_layout_item;
+    }
+
+    @Override
+    public int type(WeiBoButton weiBoButton) {
+        return weibo_button_item;
+    }
+
+    @Override
+    public int type(WeiboTag weiboTag) {
+        return weibo_tag_item;
+    }
+
+    @Override
+    public int type(WeiboSearch weiboSearch) {
+        return weibo_search_item;
+    }
+
+    @Override
+    public int type(WeiBoChildTag weiBoChildTag) {
+        return weibo_child_tag_item;
+    }
+
+    @Override
     public BaseViewHolder createViewHolder(int type, View itemView) {
         switch (type) {
             case article_item:
@@ -225,6 +273,18 @@ public class TypeFactoryList implements TypeFactory {
                 return new RecyclerHolder(itemView);
             case nurse_item:
                 return new NurseHolder(itemView);
+            case test_item:
+                return new TestItemHolder(itemView);
+            case weibo_button_item:
+                return new WeiboButtonHolder(itemView);
+            case recycler_layout_item:
+                return new RecyHolder(itemView);
+            case weibo_tag_item:
+                return new WeiboTagItemHolder(itemView);
+            case weibo_search_item:
+                return new WeiboSearchHolder(itemView);
+            case weibo_child_tag_item:
+                return new WeiBoChilTagItemHolder(itemView);
             default:
                 return null;
         }

@@ -35,4 +35,7 @@ public class PresenterClick {
     public void clickToWeb(String url){
 
     }
+    public void click(View view, Visitable visitable){
+
+    }
 }

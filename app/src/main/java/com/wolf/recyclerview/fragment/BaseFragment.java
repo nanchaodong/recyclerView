@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.wolf.recyclerview.R;
 import com.wolf.recyclerview.databinding.FBaseBinding;
@@ -19,13 +20,14 @@ import com.wolf.recyclerview.databinding.FBaseBinding;
 public abstract class BaseFragment<SV extends ViewDataBinding> extends Fragment {
     private FBaseBinding fBaseBinding;
     protected SV bindView;
+    private LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         fBaseBinding = DataBindingUtil.inflate(inflater, R.layout.f_base, null, false);
         bindView = DataBindingUtil.inflate(inflater, setLayout(), null, false);
-        fBaseBinding.fContainer.addView(bindView.getRoot());
+        fBaseBinding.fContainer.addView(bindView.getRoot(),layoutParams);
         return fBaseBinding.getRoot();
     }
 
