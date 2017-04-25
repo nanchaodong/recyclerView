@@ -9,5 +9,6 @@
 8.添加瀑布流布局上拉刷新下拉加载  
 9.添加验证码布局 其中edittext与android databinding结合使用  
 10.打造recyclerView和design包下的响应式布局，实现微博动画的效果  
-11.实现今日头条版的视频播放
+11.实现今日头条版的视频播放  
+12.仿微博发现页面，联系appbarlayout，将万能适配器使用到极致
 
