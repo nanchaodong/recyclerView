@@ -36,6 +36,7 @@
         <activity android:name=".activity.ScroolActivity"/>
         <activity android:name=".activity.TestActivity"/>
         <activity android:name=".activity.WeiBoFindActivity"/>
+        <activity android:name=".activity.ScaleActivity"/>
 
 
         <meta-data

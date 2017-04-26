@@ -1,18 +1,14 @@
 package com.wolf.recyclerview.activity;
 
+import android.animation.LayoutTransition;
+import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.TabLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.ScaleAnimation;
-import android.widget.Toast;
 
-import com.nineoldandroids.animation.PropertyValuesHolder;
-import com.nineoldandroids.view.ViewHelper;
-import com.nineoldandroids.view.ViewPropertyAnimator;
 import com.wolf.recyclerview.R;
 import com.wolf.recyclerview.adapter.BaseAdapter;
 import com.wolf.recyclerview.adapter.WeiboPagerAdapter;
@@ -53,39 +49,58 @@ public class WeiBoFindActivity extends BaseActivity<AWeiboFindBinding> {
         bindView.recyclerView.setPadding(0, 0, 0, this.getResources().getDimensionPixelSize(R.dimen.d10));
         createTitle();
         create();
+        anim();
         bindView.appbarlayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 int distance = appBarLayout.getTotalScrollRange();
-                if (Math.abs(verticalOffset) == distance) {
+                if (Math.abs(verticalOffset) == distance&& distance != 0) {
+                    Log.i(TAG, "onOffsetChanged: " + "最顶");
                     bindView.imageBack.setVisibility(View.VISIBLE);
                     changeStatus(true);
-                    bindView.recyclerView.setVisibility(View.GONE);
-
+                    final AppBarLayout.LayoutParams lp = (AppBarLayout.LayoutParams) bindView.recyclerView.getLayoutParams();
+                    bindView.recyclerView.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            lp.setScrollFlags(0);
+                            bindView.recyclerView.setLayoutParams(lp);
+                            bindView.recyclerView.setVisibility(View.GONE);
+                        }
+                    }, 100);
+                    
                 }
-                if (Math.abs(verticalOffset) == 0){
-                    if (bindView.recyclerView.getVisibility() == View.GONE){
-                        bindView.imageBack.setVisibility(View.VISIBLE);
-                        changeStatus(true);
-                    }else {
-                        bindView.imageBack.setVisibility(View.GONE);
-                        changeStatus(false);
-                    }
 
-                }
-                Log.i(TAG, "onOffsetChanged: " + verticalOffset);
 
             }
         });
         bindView.imageBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                bindView.recyclerView.setVisibility(View.VISIBLE);
 
+              AppBarLayout.LayoutParams lp = (AppBarLayout.LayoutParams) bindView.recyclerView.getLayoutParams();
+                lp.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL);
+                bindView.recyclerView.setLayoutParams(lp);
+                bindView.recyclerView.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        anim();
+                        bindView.recyclerView.setVisibility(View.VISIBLE);
+                        bindView.imageBack.setVisibility(View.GONE);
+                        changeStatus(false);
+                    }
+                },300);
 
             }
         });
 
+
+    }
+    private void anim(){
+        LayoutTransition mTransition = new LayoutTransition();
+/** * 添加View时过渡动画效果 */
+        ObjectAnimator addAnimator = ObjectAnimator.ofFloat(null, "translationY", 0, 1.f).setDuration(mTransition.getDuration(LayoutTransition.APPEARING));
+        mTransition.setAnimator(LayoutTransition.APPEARING, addAnimator);
+        bindView.appbarlayout.setLayoutTransition(mTransition);
 
     }
 
@@ -115,6 +130,7 @@ public class WeiBoFindActivity extends BaseActivity<AWeiboFindBinding> {
         pagerAdapter.addData(weiBoTabs);
         bindView.tablayout.setupWithViewPager(bindView.viewpager);
         bindView.viewpager.setAdapter(pagerAdapter);
+        bindView.viewpager.setOffscreenPageLimit(3);
 
     }
 

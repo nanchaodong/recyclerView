@@ -40,6 +40,7 @@ public class HomeActivity extends BaseActivity<ActivityMainBinding> {
         list.add(new ClassInfo("scroll", ScroolActivity.class));
         list.add(new ClassInfo("text", TestActivity.class));
         list.add(new ClassInfo("WeiBoFindActivity", WeiBoFindActivity.class));
+        list.add(new ClassInfo("ScaleActivity", ScaleActivity.class));
         adapter = new CommonAdapter(this);
         bindView.recyclerView.setAdapter(adapter);
         manager = new GridLayoutManager(this, 1);

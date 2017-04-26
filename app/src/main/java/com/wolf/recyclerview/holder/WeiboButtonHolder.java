@@ -41,6 +41,7 @@ public class WeiboButtonHolder extends BaseViewHolder<WeiBoButton, WeiboButtonIt
         bindingView.setWeiboButton(model);
         bindingView.setPresenter(click);
 
+
     }
 
     private PresenterClick click = new PresenterClick() {

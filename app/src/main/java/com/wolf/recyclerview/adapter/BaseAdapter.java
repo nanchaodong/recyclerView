@@ -61,7 +61,7 @@ public class BaseAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public <T extends Visitable> void removeItems(List<T> list) {
         int startIndex = this.list.size();
         this.list.removeAll(list);
-        notifyItemRangeRemoved(startIndex -1, this.list.size() - 1);
+        notifyItemRangeRemoved(startIndex - 1, this.list.size() - 1);
     }
 
     @Override

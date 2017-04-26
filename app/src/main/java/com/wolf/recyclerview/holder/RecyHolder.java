@@ -1,9 +1,13 @@
 package com.wolf.recyclerview.holder;
 
+import android.animation.LayoutTransition;
+import android.animation.ObjectAnimator;
 import android.graphics.Rect;
+import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SimpleItemAnimator;
 import android.view.View;
 
 import com.wolf.recyclerview.R;
@@ -35,9 +39,11 @@ public class RecyHolder extends BaseViewHolder<RecyclerData, RecyclerLayoutBindi
     @Override
     public void setBean(RecyclerData model, int position, BaseAdapter adapter) {
         bindingView.recyclerView.setNestedScrollingEnabled(false);
+
         if (model.getData() != null && model.getData().get(0) instanceof WeiBoButton) {
             manager = new GridLayoutManager(context, 5);
             bindingView.recyclerView.setPadding(0,0,0,padding);
+
         }
         if (model.getData() != null && model.getData().get(0) instanceof WeiboTag){
             manager = new GridLayoutManager(context, 2);
