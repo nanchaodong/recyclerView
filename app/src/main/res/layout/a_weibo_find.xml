@@ -47,6 +47,8 @@
                     android:layout_height="wrap_content"
                     app:tabIndicatorColor="#FFFFFFFF"
                     app:tabMode="fixed"
+                    android:focusableInTouchMode="true"
+                    android:focusable="true"
                     app:tabSelectedTextColor="@color/common_blue_0090FF"
                     app:tabTextColor="#FF888888"/>
             </RelativeLayout>

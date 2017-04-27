@@ -1,6 +1,5 @@
 package com.wolf.recyclerview.presenter;
 
-import android.drm.DrmStore;
 import android.view.View;
 
 import com.wolf.recyclerview.R;
@@ -10,8 +9,8 @@ import com.wolf.recyclerview.bean.Banner;
 import com.wolf.recyclerview.bean.Btn;
 import com.wolf.recyclerview.bean.ButtonTitle;
 import com.wolf.recyclerview.bean.ClassInfo;
-import com.wolf.recyclerview.bean.Nation;
 import com.wolf.recyclerview.bean.Footer;
+import com.wolf.recyclerview.bean.Nation;
 import com.wolf.recyclerview.bean.NewGroup;
 import com.wolf.recyclerview.bean.News;
 import com.wolf.recyclerview.bean.NewsTag;
@@ -28,6 +27,8 @@ import com.wolf.recyclerview.bean.TopTag;
 import com.wolf.recyclerview.bean.Video;
 import com.wolf.recyclerview.bean.WeiBoButton;
 import com.wolf.recyclerview.bean.WeiBoChildTag;
+import com.wolf.recyclerview.bean.WeiBoPicture;
+import com.wolf.recyclerview.bean.WeiboArticle;
 import com.wolf.recyclerview.bean.WeiboSearch;
 import com.wolf.recyclerview.bean.WeiboTag;
 import com.wolf.recyclerview.holder.ArticleHolder;
@@ -38,7 +39,6 @@ import com.wolf.recyclerview.holder.ButtonHeaderItem;
 import com.wolf.recyclerview.holder.ButtonHolder;
 import com.wolf.recyclerview.holder.ClassItemHolder;
 import com.wolf.recyclerview.holder.FooterHolder;
-
 import com.wolf.recyclerview.holder.NewsOneHolder;
 import com.wolf.recyclerview.holder.NewsTagHolder;
 import com.wolf.recyclerview.holder.NewsTwoHolder;
@@ -53,7 +53,9 @@ import com.wolf.recyclerview.holder.TestItemHolder;
 import com.wolf.recyclerview.holder.TitleHolder;
 import com.wolf.recyclerview.holder.VideoItemHolder;
 import com.wolf.recyclerview.holder.WeiBoChilTagItemHolder;
+import com.wolf.recyclerview.holder.WeiboArticleItemHolder;
 import com.wolf.recyclerview.holder.WeiboButtonHolder;
+import com.wolf.recyclerview.holder.WeiboPictureItemHolder;
 import com.wolf.recyclerview.holder.WeiboSearchHolder;
 import com.wolf.recyclerview.holder.WeiboTagItemHolder;
 
@@ -89,6 +91,8 @@ public class TypeFactoryList implements TypeFactory {
     private final int weibo_tag_item = R.layout.weibo_tag_item;
     private final int weibo_search_item = R.layout.weibo_search_item;
     private final int weibo_child_tag_item = R.layout.weibo_child_tag_item;
+    private final int weibo_article_item = R.layout.weibo_article_item;
+    private final int weibo_picture_item = R.layout.weibo_picture_item;
 
     @Override
 
@@ -235,6 +239,16 @@ public class TypeFactoryList implements TypeFactory {
     }
 
     @Override
+    public int type(WeiboArticle weiboArticle) {
+        return weibo_article_item;
+    }
+
+    @Override
+    public int type(WeiBoPicture weiBoPicture) {
+        return weibo_picture_item;
+    }
+
+    @Override
     public BaseViewHolder createViewHolder(int type, View itemView) {
         switch (type) {
             case article_item:
@@ -285,6 +299,10 @@ public class TypeFactoryList implements TypeFactory {
                 return new WeiboSearchHolder(itemView);
             case weibo_child_tag_item:
                 return new WeiBoChilTagItemHolder(itemView);
+            case weibo_article_item:
+                return new WeiboArticleItemHolder(itemView);
+            case weibo_picture_item:
+                return new WeiboPictureItemHolder(itemView);
             default:
                 return null;
         }

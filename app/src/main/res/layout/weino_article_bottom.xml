@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <data>
+        <variable
+            name="weiboArticle"
+            type="com.wolf.recyclerview.bean.WeiboArticle"/>
+        <variable
+            name="presenter"
+            type="com.wolf.recyclerview.presenter.PresenterClick"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/common_bottom_shape"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/send_lin"
+            android:layout_width="@dimen/d0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@drawable/common_weibo_article_bottom_selector"
+            android:onClick="@{(theView)->presenter.click(theView,weiboArticle)}"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/d10"
+            android:paddingTop="@dimen/d10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/send"/>
+
+            <TextView
+                style="@style/common_bottom_text_size_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d10"
+                android:text="@{weiboArticle.transpondCount}"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/d1"
+            android:layout_height="@dimen/d20"
+            android:background="@color/common_article_pic_bg_676767"/>
+
+        <LinearLayout
+            android:id="@+id/message_lin"
+            android:layout_width="@dimen/d0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/d10"
+            android:onClick="@{(theView)->presenter.click(theView,weiboArticle)}"
+            android:background="@drawable/common_weibo_article_bottom_selector"
+            android:paddingTop="@dimen/d10">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/message"/>
+
+            <TextView
+                style="@style/common_bottom_text_size_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d10"
+                android:text="@{weiboArticle.replyCount}"/>
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="@dimen/d1"
+            android:layout_height="@dimen/d20"
+            android:background="@color/common_article_pic_bg_676767"/>
+
+        <LinearLayout
+            android:id="@+id/praise_lin"
+            android:layout_width="@dimen/d0"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingBottom="@dimen/d10"
+            android:onClick="@{(theView)->presenter.click(theView,weiboArticle)}"
+            android:background="@drawable/common_weibo_article_bottom_selector"
+            android:paddingTop="@dimen/d10">
+
+            <ImageView
+                android:id="@+id/zan_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:zan="@{weiboArticle.praise}"
+              />
+
+            <TextView
+                style="@style/common_bottom_text_size_color"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/d10"
+                android:text="@{weiboArticle.praiseCount}"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</layout>

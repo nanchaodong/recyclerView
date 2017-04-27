@@ -7,7 +7,10 @@
     <dimen name="d46">46dp</dimen>
     <dimen name="d5">5dp</dimen>
     <dimen name="d10">10dp</dimen>
+    <dimen name="d_10">-10dp</dimen>
+    <dimen name="d1005">10.5dp</dimen>
     <dimen name="d2">2dp</dimen>
+    <dimen name="d1">1dp</dimen>
     <dimen name="d3">3dp</dimen>
     <dimen name="d0">0dp</dimen>
     <dimen name="d05">0.5dp</dimen>

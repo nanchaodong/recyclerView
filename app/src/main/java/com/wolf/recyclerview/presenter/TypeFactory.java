@@ -28,6 +28,8 @@ import com.wolf.recyclerview.bean.TopTag;
 import com.wolf.recyclerview.bean.Video;
 import com.wolf.recyclerview.bean.WeiBoButton;
 import com.wolf.recyclerview.bean.WeiBoChildTag;
+import com.wolf.recyclerview.bean.WeiBoPicture;
+import com.wolf.recyclerview.bean.WeiboArticle;
 import com.wolf.recyclerview.bean.WeiboSearch;
 import com.wolf.recyclerview.bean.WeiboTag;
 import com.wolf.recyclerview.controller.SchoolListRecy;
@@ -90,6 +92,10 @@ public interface TypeFactory {
     int type(WeiboSearch weiboSearch);
 
     int type(WeiBoChildTag weiBoChildTag);
+
+    int type(WeiboArticle weiboArticle);
+
+    int type(WeiBoPicture weiBoPicture);
 
     BaseViewHolder createViewHolder(int type, View itemView);
 }

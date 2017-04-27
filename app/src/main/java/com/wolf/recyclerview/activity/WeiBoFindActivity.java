@@ -79,6 +79,7 @@ public class WeiBoFindActivity extends BaseActivity<AWeiboFindBinding> {
 
               AppBarLayout.LayoutParams lp = (AppBarLayout.LayoutParams) bindView.recyclerView.getLayoutParams();
                 lp.setScrollFlags(AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL);
+                changeStatus(false);
                 bindView.recyclerView.setLayoutParams(lp);
                 bindView.recyclerView.postDelayed(new Runnable() {
                     @Override
@@ -86,7 +87,7 @@ public class WeiBoFindActivity extends BaseActivity<AWeiboFindBinding> {
                         anim();
                         bindView.recyclerView.setVisibility(View.VISIBLE);
                         bindView.imageBack.setVisibility(View.GONE);
-                        changeStatus(false);
+
                     }
                 },300);
 

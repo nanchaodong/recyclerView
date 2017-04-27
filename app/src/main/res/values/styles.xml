@@ -28,5 +28,13 @@
         <item name="android:textColor">@color/common_blue_0090FF</item>
         <item name="android:textSize">18sp</item>
     </style>
+    <style name="common_text_size_color">
+        <item name="android:textColor">@color/common_text_676767</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+    <style name="common_bottom_text_size_color">
+        <item name="android:textColor">@color/common_text_a9b7b7</item>
+        <item name="android:textSize">14sp</item>
+    </style>
 
 </resources>
